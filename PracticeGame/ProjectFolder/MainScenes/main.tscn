@@ -10,6 +10,7 @@
 position = Vector2(414, 246)
 
 [node name="enemyKangaroo" parent="." instance=ExtResource("3_kyiwn")]
+collision_layer = 3
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_khq2c")]
 visible = false
