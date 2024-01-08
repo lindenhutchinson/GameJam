@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtnshw4lg1k0t"]
+
+[ext_resource type="Script" path="res://ui/PauseMenu/PauseMenu.gd" id="1_ggfwf"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ggfwf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.443137)
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -139.0
+offset_top = 300.0
+offset_right = 139.0
+offset_bottom = 377.0
+theme_override_font_sizes/font_size = 50
+text = "RESUME"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -139.0
+offset_top = 400.0
+offset_right = 139.0
+offset_bottom = 477.0
+theme_override_font_sizes/font_size = 50
+text = "EXIT"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

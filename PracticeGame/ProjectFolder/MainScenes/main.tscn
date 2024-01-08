@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://855bo4ouabj3"]
+
+[ext_resource type="PackedScene" uid="uid://bwiv6wl820pxm" path="res://Nodes/Player/player.tscn" id="1_r6epy"]
+[ext_resource type="PackedScene" uid="uid://dtnshw4lg1k0t" path="res://ui/PauseMenu/PauseMenu.tscn" id="2_khq2c"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_r6epy")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_khq2c")]
+visible = false
+offset_left = 960.0
+offset_right = 960.0
