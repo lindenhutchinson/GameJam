@@ -15,10 +15,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
-
-
-
 func _on_body_entered(body):
-	if(body.name == "enemyKangaroo"):
+	var enemy = get_tree().get_nodes_in_group("enemy")
+	if(enemy != null):
 		body.queue_free()
 		queue_free()

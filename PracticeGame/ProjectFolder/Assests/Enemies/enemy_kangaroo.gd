@@ -5,25 +5,42 @@ extends CharacterBody2D
 
 # Checks the group Player and gets the first thing on it.
 @onready var player = get_tree().get_first_node_in_group("player")
+
+# Applies the 2D sprite into a variable
 @onready var sprite = $Sprite2D
+
+# Applies the walking animation into a variable
 @onready var walkAnimation = $AnimationPlayer
 
 func _physics_process(_delta):
 	movement()
 
 func _ready():
+	# Makes the walking animation play forever
 	walkAnimation.play("walkCycle")
 
 func movement():
 	
 	# Gets the player's current position as a direction
-	var direction = global_position.direction_to(player.global_position)
+	#var direction = global_position.direction_to(player.global_position)
+	var direction
+	if player!=null:
+		direction = global_position.direction_to(player.global_position)
+		velocity = direction.normalized() * movement_speed
+		velocity = direction.normalized()*movement_speed
+		move_and_slide()
+	else:
+		print("Error: 'player' no está disponible o ha sido eliminado.")
+	
 	
 	# Moves towards the player
-	velocity = direction.normalized()*movement_speed
-	move_and_slide()
-
+	#velocity = direction.normalized()*movement_speed
+	#move_and_slide()
+	
+	# Is the enemy moving towards the right?
 	if direction.x > 0.1:
+		# Yes it is
 		sprite.flip_h = true
 	elif direction.x < -0.1:
+		# No it isn't
 		sprite.flip_h = false
