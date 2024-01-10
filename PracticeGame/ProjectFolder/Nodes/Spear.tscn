@@ -1,30 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyjo6sv2lwwf1"]
 
-[ext_resource type="Script" path="res://Nodes/FireBall.gd" id="1_lrdj3"]
-[ext_resource type="Texture2D" uid="uid://5q06bagfmwkh" path="res://Assests/fireBall.png" id="2_ruddn"]
+[ext_resource type="Script" path="res://Nodes/Spear.gd" id="1_5i83h"]
+[ext_resource type="Texture2D" uid="uid://dkbiwhj8u3lww" path="res://Assests/spear.png" id="2_1ep81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fscm8"]
-size = Vector2(37, 36)
+size = Vector2(78, 17)
 
-[node name="FireBall" type="RigidBody2D"]
+[node name="Spear" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
 max_contacts_reported = 1080
 contact_monitor = true
-script = ExtResource("1_lrdj3")
+script = ExtResource("1_5i83h")
 
-[node name="FireBall" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_ruddn")
+[node name="SpearSprite" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -4.76837e-07)
+scale = Vector2(2.35, 2.35)
+texture = ExtResource("2_1ep81")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6.5, 0)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_fscm8")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(5.5, -7.15256e-07)
-scale = Vector2(1.25, 1.1)
+position = Vector2(1.00001, 0.5)
+scale = Vector2(3.9, 0.85)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

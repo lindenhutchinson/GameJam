@@ -3,10 +3,10 @@ extends CharacterBody2D
 # This variable defines the speed of the player
 const SPEED = 300.0
 
-# This variable loads the ranged attack
-const fireBallPath = preload("res://Nodes/FireBall.tscn")
+# This variable loads the spear to perform an attack
+const spearPath = preload("res://Nodes/spear.tscn")
 
-
+# This variable iniciates the timer for the Spear attack
 @onready var timer = $Timer
 
 func _physics_process(delta):
@@ -27,25 +27,32 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2(0,0), SPEED)
 	
 	move_and_slide()
-	
+
+
 func _ready():
+	# This timer is used to time the spear attack. When the timer finishes, it performs the function "_on_timer_timeout()"
 	timer.connect("timeout", self._on_timer_timeout)
 	timer.start()
-	
+
 
 func _on_timer_timeout():
-	fireBall()
+	# "The timer finished, execute the function to throw a spear"
+	throwSpear()
 
-func fireBall():
+
+func throwSpear():
 	var enemy = get_tree().get_first_node_in_group("enemy")
 	# Are there enemies alive?
 	if enemy != null: # Yes there are
-		# Instantiate a fireball
-		var fireball = fireBallPath.instantiate() as RigidBody2D
+		# Instantiate a spear
+		var spear = spearPath.instantiate() as RigidBody2D
 		# Get the nearest enemy direction
 		var enemyDirection = global_position.direction_to(enemy.global_position)
-		var fireballSpeed = 500.0
-		fireball.linear_velocity = enemyDirection.normalized()*fireballSpeed
-		get_parent().add_child.call_deferred(fireball)
-	else:
+		# Movement speed of the spear
+		var spearSpeed = 500.0
+		# The linear velocity is the current location of the nearest enemy multiplied by the assigned speed of the spear
+		spear.linear_velocity = enemyDirection.normalized()*spearSpeed
+		# Adds the spear as a child of the player in a way where it doesn't crash.
+		get_parent().add_child.call_deferred(spear)
+	else: # This 'else' should be removed eventually. it's just to make sure the game recognises there are no enemies left.
 		print("This is a debug message, there are no more enemies")

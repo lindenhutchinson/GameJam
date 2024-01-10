@@ -22,25 +22,14 @@ func _ready():
 func movement():
 	
 	# Gets the player's current position as a direction
-	#var direction = global_position.direction_to(player.global_position)
-	var direction
-	if player!=null:
-		direction = global_position.direction_to(player.global_position)
-		velocity = direction.normalized() * movement_speed
-		velocity = direction.normalized()*movement_speed
-		move_and_slide()
-	else:
-		print("Error: 'player' no está disponible o ha sido eliminado.")
+	var direction = global_position.direction_to(player.global_position)
 	
-	
-	# Moves towards the player
-	#velocity = direction.normalized()*movement_speed
-	#move_and_slide()
+	# The enemy's velocity is calculated with where the player is, multiplied by the enemy's movement speed
+	velocity = direction.normalized() * movement_speed
+	move_and_slide()
 	
 	# Is the enemy moving towards the right?
-	if direction.x > 0.1:
-		# Yes it is
+	if direction.x > 0.1: # Yes it is
 		sprite.flip_h = true
-	elif direction.x < -0.1:
-		# No it isn't
+	elif direction.x < -0.1: # No it isn't
 		sprite.flip_h = false
