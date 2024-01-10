@@ -1,10 +1,12 @@
 extends Node2D
 
-# Applies the 2D sprite into a variable
-@onready var sprite = $SpearSprite
 
 # Path to the kangaroo's node
 const kangPath =  preload("res://Assests/Enemies/enemy_kangaroo.tscn")
+# Applies the 2D sprite into a variable
+@onready var sprite = $SpearSprite
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +37,6 @@ func _on_body_entered(body):
 		# Creats instance of the kangaroo's node from the path 
 		var kang = kangPath.instantiate() 
 		# Adds it to the parent node/Main
-		get_parent().add_child.call_deferred(kang)
+		get_tree().root.add_child.call_deferred(kang)
 		queue_free()
 		
