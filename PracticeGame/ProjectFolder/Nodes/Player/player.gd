@@ -56,3 +56,7 @@ func throwSpear():
 		get_parent().add_child.call_deferred(spear)
 	else: # This 'else' should be removed eventually. it's just to make sure the game recognises there are no enemies left.
 		print("This is a debug message, there are no more enemies")
+		
+
+
+	
