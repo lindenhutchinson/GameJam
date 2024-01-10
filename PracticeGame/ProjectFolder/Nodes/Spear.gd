@@ -5,7 +5,7 @@ extends Node2D
 const kangPath =  preload("res://Assests/Enemies/enemy_kangaroo.tscn")
 # Applies the 2D sprite into a variable
 @onready var sprite = $SpearSprite
-
+@onready var collision = $CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
