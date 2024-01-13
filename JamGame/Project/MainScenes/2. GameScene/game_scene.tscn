@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://0sehcj380ea3"]
+
+[ext_resource type="PackedScene" uid="uid://ddxe56478yqg4" path="res://MainScenes/3. PauseScene/pause_scene.tscn" id="1_18bwx"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="PauseScene" parent="." instance=ExtResource("1_18bwx")]
+visible = false
+
+[node name="Resume" parent="PauseScene" index="1"]
+offset_top = 264.0
+offset_bottom = 339.0
+
+[editable path="PauseScene"]

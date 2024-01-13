@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpb5ajbr7artk"]
+
+[ext_resource type="Theme" uid="uid://b1ds8i0jlos4p" path="res://UI/ButtonTheme.tres" id="1_d4e2j"]
+[ext_resource type="Script" path="res://MainScenes/1. HomeScreen/home_screen.gd" id="1_y6duk"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6duk")
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -37.0
+offset_right = 250.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4e2j")
+text = "Play"
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 58.605
+offset_right = 250.0
+offset_bottom = 134.605
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4e2j")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 154.71
+offset_right = 250.0
+offset_bottom = 229.71
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4e2j")
+text = "Exit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

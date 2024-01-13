@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b1ds8i0jlos4p"]
+
+[ext_resource type="FontFile" uid="uid://06dkqo3gyai2" path="res://UI/font/C&C Red Alert [INET].ttf" id="1_ce5iq"]
+
+[resource]
+default_font = ExtResource("1_ce5iq")
+Button/font_sizes/font_size = 48
